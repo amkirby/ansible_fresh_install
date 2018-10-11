@@ -1,0 +1,23 @@
+---
+# vars file for git-setup
+projects: # An array of projects to get setup
+  - name: Emacs
+    git: https://github.com/amkirby/Emacs.git
+    path: Emacs
+
+  - name: Vim
+    git: https://github.com/amkirby/Vim.git
+    path: Vim
+
+  - name: Checkbook
+    git: https://github.com/amkirby/Checkbook.git
+    path: Checkbook
+
+  - name: dotfiles
+    git: https://github.com/amkirby/dotfiles.git
+    path: dotfiles
+
+git_home: /home/amkirby/Git
+
+home: /home/amkirby
+

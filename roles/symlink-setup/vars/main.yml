@@ -1,0 +1,5 @@
+---
+# vars file for symlink-setup
+git_home: /home/amkirby/Git
+
+home: /home/amkirby

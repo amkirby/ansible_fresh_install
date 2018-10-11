@@ -1,0 +1,24 @@
+---
+# tasks file for git-setup
+- name: Clone projects from github
+  git:
+    repo: "{{ item.git }}"
+    dest: "{{ git_home }}/{{ item.path }}"
+  with_items: "{{ projects }}"
+
+- name: Symlink git global
+  file: path={{ git_home }}/{{ item }} src={{ git_home }}/dotfiles/{{ item }} state=link
+  with_items:
+    - .gitignore_global
+
+- name: set global gitignore file
+  git_config:
+    name: core.excludesfile
+    scope: global
+    value: '{{ git_home }}/.gitignore_global'
+
+- name: set global git editor
+  git_config:
+    name: core.editor
+    scope: global
+    value: emacs

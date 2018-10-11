@@ -1,0 +1,137 @@
+---
+- hosts: all
+  connection: local
+
+  roles:
+#    - { role: cmprescott.chrome, become: yes}
+    # - git-setup
+    # - symlink-setup
+
+  vars:
+    home: /home/amkirby
+    # git_home: /home/amkirby/Git
+    font_home: /home/amkirby/.local/share/fonts
+    distro_vars: distro_vars
+    # applications:
+    #   - emacs
+    #   - zsh
+    #   - arc-theme # fedora
+    #   - util-linux-user # fedora
+
+    # projects: # An array of projects to get setup
+    #   - name: Emacs
+    #     git: https://github.com/amkirby/Emacs.git
+    #     path: Emacs
+
+    #   - name: Vim
+    #     git: https://github.com/amkirby/Vim.git
+    #     path: Vim
+
+    #   - name: Checkbook
+    #     git: https://github.com/amkirby/Checkbook.git
+    #     path: Checkbook
+
+    #   - name: dotfiles
+    #     git: https://github.com/amkirby/dotfiles.git
+    #     path: dotfiles
+
+  tasks:
+
+    - name: include application var
+      include_vars: '{{ distro_vars}}/{{ ansible_distribution }}.yml' #"{{ item }}"
+      # with_first_found:
+      #   - '{{ distro_vars}}/{{ ansible_distribution }}.yml'
+    # - name: Clone projects from github
+    #   git:
+    #     repo: "{{ item.git }}"
+    #     dest: "{{ git_home }}/{{ item.path }}"
+    #   with_items: "{{ projects }}"
+
+    - name: look at vars
+      debug:
+        var: applications
+
+    # - name: Install packages
+    #   dnf: name={{ item }} state=installed
+    #   with_items: "{{ applications }}"
+    #   become: yes
+    #   become_user: root
+
+
+
+    # - name: Symlink dotfiles
+    #   file: path={{ home }}/{{ item }} src={{ git_home }}/dotfiles/{{ item }} state=link
+    #   with_items:
+    #     - .Xresources
+    #     - .zshrc
+
+    # - name: Symlink i3 and conky
+    #   file: path={{ home }}/.{{ item }} src={{ git_home }}/dotfiles/{{ item }} state=link
+    #   with_items:
+    #     - i3
+    #     - conky
+
+    # - name: Symlink git global
+    #   file: path={{ git_home }}/{{ item }} src={{ git_home }}/dotfiles/{{ item }} state=link
+    #   with_items:
+    #     - .gitignore_global
+
+    # - name: Symlink Emacs config
+    #   file: path={{ home }}/{{ item }} src={{ git_home }}/Emacs/{{ item }} state=link
+    #   with_items:
+    #     - .emacs
+    #     - .emacs.d
+
+    # - name: Symlink Vim config
+    #   file: path={{ home }}/{{ item }} src={{ git_home }}/Vim/{{ item }} state=link
+    #   with_items:
+    #     - .vim
+    #     - .vimrc
+
+    # - name: clone my oh-my-zsh
+    #   git: repo=https://github.com/amkirby/oh-my-zsh.git dest={{ home }}/.oh-my-zsh
+
+    # - name: clone zsh-syntax-highlighting
+    #   git:
+    #     repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    #     dest: "{{ home }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+    
+    # - name: set global gitignore file
+    #   git_config:
+    #     name: core.excludesfile
+    #     scope: global
+    #     value: '{{ git_home }}/.gitignore_global'
+
+    # - name: set global git editor
+    #   git_config:
+    #     name: core.editor
+    #     scope: global
+    #     value: emacs
+
+#    - name: create local fonts directory
+#      file:
+#        path: '{{ font_home }}/adobe-fonts/source-code-pro'
+#        state: directory
+
+#    - name: clone adobe source-code-pro font
+#      git:
+#        repo: https://github.com/adobe-fonts/source-code-pro.git
+#        dest: '{{ font_home }}/adobe-fonts/source-code-pro'
+#        version: release
+#      notify: update font cache
+
+    # - name: Install packages
+    #   dnf: name={{ item }} state=installed
+    #   with_items: "{{ applications }}"
+    #   become: yes
+    #   become_user: root
+
+    # - name: change shell
+    #   shell: chsh -s /usr/bin/zsh amkirby
+    #   become: yes
+    #   become_user: root
+
+  handlers:
+
+    - name: update font cache
+      command: fc-cache -f -v

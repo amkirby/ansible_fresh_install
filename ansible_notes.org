@@ -1,0 +1,6 @@
+* installing packages
+  - use --ask-become-pass to prompt for sudo password
+** with_items
+   - with_items: "{{ <var name> }}"
+* command to run
+  - ansible_playbook -i <host file> <playbook> --ask-become-pass

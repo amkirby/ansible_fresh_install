@@ -1,0 +1,7 @@
+---
+applications:
+  - emacs
+  - zsh
+  - rxvt-unicode-256color
+  - htop
+  - redshift-gtk # don't use for kde
