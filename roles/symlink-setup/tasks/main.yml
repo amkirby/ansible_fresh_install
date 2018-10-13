@@ -24,6 +24,11 @@
     - .vim
     - .vimrc
 
+- name: Symlink polybar
+  file: path={{ home }}/.config/{{ item }} src={{ git_home }}/dotfiles/{{ item }} state=link
+  with_items:
+    - polybar
+    
 - name: clone my oh-my-zsh
   git: repo=https://github.com/amkirby/oh-my-zsh.git dest={{ home }}/.oh-my-zsh
 
