@@ -3,4 +3,4 @@
 ** with_items
    - with_items: "{{ <var name> }}"
 * command to run
-  - ansible_playbook -i <host file> <playbook> --ask-become-pass
+  - ansible-playbook -i <host file> <playbook> --ask-become-pass
