@@ -3,6 +3,7 @@ applications:
   - emacs
   - zsh
   - arc-theme
+  - adobe-source-code-pro-fonts
   - util-linux-user
   - rxvt-unicode-256color
   - htop
