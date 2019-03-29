@@ -25,6 +25,10 @@ projects: # An array of projects to get setup
     git: https://github.com/jaagr/polybar
     path: polybar
 
+  - name: siji font
+    git: https://github.com/stark/siji
+    path: siji
+
 git_home: /home/amkirby/Git
 
 home: /home/amkirby
