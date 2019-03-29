@@ -1,0 +1,8 @@
+---
+# tasks file for i3-setup
+- name: install i3 dependencies
+  apt: name={{ item }} state=installed
+  with_items: "{{ dependencies }}"
+  become: yes
+  become_user: root
+  
