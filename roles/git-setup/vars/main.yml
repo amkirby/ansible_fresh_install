@@ -18,7 +18,7 @@ projects: # An array of projects to get setup
     path: dotfiles
 
   - name: i3 gaps
-    git: https://github.com/Airblader/i3 i3-gaps
+    git: https://github.com/Airblader/i3
     path: i3-gaps
     
   - name: polybar
