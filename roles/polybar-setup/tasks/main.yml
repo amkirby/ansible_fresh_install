@@ -1,0 +1,7 @@
+---
+# tasks file for polybar-setup
+- name: install polybar dependencies
+  apt: name={{ item }} state=installed
+  with_items: "{{ dependencies }}"
+  become: yes
+  become_user: root
