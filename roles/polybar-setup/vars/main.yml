@@ -1,9 +1,10 @@
 ---
 # vars file for polybar-setup
-# =============================
-#      Ubuntu Dependencies     
-# =============================
 dependencies:
+  # =============================
+  #      Ubuntu Dependencies     
+  # =============================
+  # required dependencies
   - build-essential
   - git
   - cmake
@@ -19,6 +20,7 @@ dependencies:
   - libxcb-image0-dev
   - libxcb-ewmh-dev
   - libxcb-icccm4-dev
+  #optional dependencies
   - libxcb-xkb-dev
   - libxcb-xrm-dev
   - libxcb-cursor-dev
@@ -29,4 +31,23 @@ dependencies:
   - libmpdclient-dev
   - libcurl4-openssl-dev
   - libnl-genl-3-dev
-
+  # =============================
+  #      Fedora Dependencies     
+  # =============================
+  # required dependencies
+  - cairo-devel
+  - xcb-util-devel
+  - libxcb-devel
+  - xcb-proto
+  - xcb-util-image-devel
+  - xcb-util-wm-devel
+  #optional dependencies
+  - xcb-util-xrm-devel
+  - xcb-util-cursor-devel
+  - alsa-lib-devel
+  - pulseaudio-libs-devel
+  - i3-ipc
+  - jsoncpp-devel
+  - libmpdclient-devel
+  - libcurl-devel
+  - libnl3-devel
